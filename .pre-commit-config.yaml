@@ -1,0 +1,25 @@
+default_language_version:
+  # force all unspecified python hooks to run python3.9
+  python: python3.9
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.5.0
+    hooks:
+      - id: no-commit-to-branch
+        name: Check on branch name
+        args: ['--branch', 'main']
+      - id: end-of-file-fixer
+      - id: check-docstring-first
+      - id: check-json
+      - id: check-yaml
+      - id: debug-statements
+      - id: name-tests-test
+      - id: requirements-txt-fixer
+      - id: double-quote-string-fixer
+      - id: trailing-whitespace
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.8.4
+    hooks:
+      - id: flake8
+        entry: bash -c 'git diff --unified=0 --staged -- "$@" | flake8 --diff' --
+        language_version: python3

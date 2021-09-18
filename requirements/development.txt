@@ -1,0 +1,5 @@
+-r ./base.txt
+
+flake8==3.8.4
+pre-commit
+isort==5.8.0
